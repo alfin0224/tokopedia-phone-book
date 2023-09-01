@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import ContactListPage from './components/ContactList';
+import FormContactPage from './components/FormContact';
+import EditContactPage from 'components/EditContact';
+import Footer from 'components/global/Footer';
+import Header from 'components/global/Header';
 
-function App() {
+
+const App: React.FC = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+          <Route path='/' element={<ContactListPage />} />
+          <Route path='/add' element={<FormContactPage />} />
+          <Route path='/edit/:id' element={<EditContactPage />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
-}
+};
 
 export default App;
