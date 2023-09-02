@@ -150,7 +150,7 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
                 <div>
                 <PhoneNumberCard>
                 {contact.phones.map(phone => (
-                  <div style={{textAlign: 'left', paddingLeft: '1.2rem'}}>
+                  <div style={{textAlign: 'left', paddingLeft: '1.2rem', marginBottom: '0.6rem'}}>
                   <FaPhone/>&nbsp; &nbsp;<span key={phone.number} >{phone.number}</span>
                   </div>
                 ))}
@@ -197,11 +197,11 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
             {allContactsToShow.map((contact: Contact) => (
                 <ContactListContainer className='contact-card' key={contact.id}>
                     <ContactCard>
-                      <div style={{fontSize: '1.3rem', paddingBottom: '10px'}}>
+                      <div style={{fontSize: '1.3rem', paddingBottom: '10px', marginBottom: '0.5rem'}}>
                     <b>{contact.first_name} {contact.last_name}</b>
                     </div>
                     {contact.phones.map(phone => (
-                        <div style={{fontSize: '1rem', textAlign: 'left', paddingLeft: '1.2rem'}}>
+                        <div style={{fontSize: '1rem', textAlign: 'left', paddingLeft: '1.2rem', marginBottom: '0.5rem'}}>
                         <FaPhone/>&nbsp; &nbsp;<span key={phone.number} >{phone.number}</span>
                         </div>
                     ))}

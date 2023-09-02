@@ -168,6 +168,7 @@ export const ButtonCardContainer = styled.div`
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    margin-right: 7px;
   }
   .btn-delete {
     background-color: #e02424;
