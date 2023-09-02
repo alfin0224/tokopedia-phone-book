@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { useQuery, useMutation } from '@apollo/client';
 import { GET_CONTACT_LIST } from '../graphql/queries';
@@ -79,7 +77,7 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
   contact.last_name.toLowerCase().includes(searchQuery.toLowerCase())
 )
 
-  const uniqueFirstLetters = [...new Set(allContactsToShowMobile.map((contact: Contact) => contact.first_name[0].toUpperCase()))];
+const uniqueFirstLetters = Array.from(new Set(allContactsToShowMobile.map((contact: Contact) => contact.first_name[0].toUpperCase())));
   const totalPagesForAllContacts = Math.ceil( allContactsExceptFavorites.length / pageSize );
 
   const addToFavorites = (contact: Contact) => {
