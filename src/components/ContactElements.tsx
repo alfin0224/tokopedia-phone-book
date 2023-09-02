@@ -100,8 +100,9 @@ export const ContactCard = styled.div`
   color: #5c5c5c;
   text-align: center;
   padding: 10px;
-  margin-bottom: 5px;
-  margin-left: 5px;
+  margin-top: 4px;
+  margin-bottom: 6px;
+  margin-left: 7px;
   font-size: 1rem;
   justify-content: center;
   align-items: center;
@@ -141,7 +142,7 @@ export const PhoneNumberCard = styled.div`
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 5x;
-  margin-left: 5px;
+  margin-left: 7px;
   font-size: 1rem;
   justify-content: center;
   align-items: center;
@@ -157,7 +158,8 @@ export const ButtonCardContainer = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 10px;
-  margin-left: 5px;
+  margin-left: 7px;
+  margin-bottom: 6px;
   padding: 10px;
   text-align: center;
   background-color: #fff;

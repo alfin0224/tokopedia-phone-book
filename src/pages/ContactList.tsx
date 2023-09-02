@@ -3,7 +3,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_CONTACT_LIST } from '../graphql/queries';
 import { DELETE_CONTACT } from '../graphql/mutations';
 import { Link } from 'react-router-dom';
-import { FaTrash, FaEdit, FaStar, FaPlusCircle, FaPhone, FaBars, FaExpand } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaStar, FaPlusCircle, FaUserPlus, FaPhone, FaBars, FaExpand } from 'react-icons/fa';
 import { 
   DesktopContactContainer,
   MobileContactContainer,
@@ -132,8 +132,8 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
     <MobileContactContainer>
       <AddContactMobile>
         <div></div>
-        <div style={{alignItems: 'right', justifyContent: 'right', textAlign: 'right', marginRight: '-2rem', marginBottom: '-1.5rem'}}>
-          <Link to="/add"><button style={{backgroundColor: 'transparent', border: '0px', fontSize: '3rem', color: '#329c37' }}><FaPlusCircle/></button></Link>
+        <div style={{alignItems: 'right', justifyContent: 'right', textAlign: 'right', paddingRight: '-1rem', marginRight: '-2.8rem', marginBottom: '-1.5rem'}}>
+          <Link to="/add"><button style={{backgroundColor: 'transparent', border: '0px', fontSize: '2.5rem', color: '#329c37' }}><FaUserPlus/></button></Link>
         </div>
       </AddContactMobile>
       <Search searchQuery={searchQuery} handleSearch={handleSearch} />
