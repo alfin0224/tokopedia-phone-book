@@ -163,7 +163,7 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
                   <button
                     style={{backgroundColor: 'transparent', border: 'none', }}
                     onClick={() => toggleShowMore(contact.id)}>
-                    {showMoreId === contact.id ? <FaExpand style={{color: "#329c37"}}/> : <FaBars/>}
+                    {showMoreId === contact.id ? <FaExpand style={{color: "#329c37"}}/> : <FaBars style={{color: '#329c37' }}/>}
                   </button>
                   
                 </div>

@@ -220,6 +220,7 @@ export const SearchInputContainer = styled.div`
 
   button {
     border: none;
+    color: #329c37;
     background: none;
     cursor: pointer;
     padding: 4px;
