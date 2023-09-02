@@ -55,7 +55,9 @@ function ContactList() {
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
 
-  const allContacts = data.contact.sort((a: Contact, b: Contact) => a.first_name.localeCompare(b.first_name));
+  // const allContacts = data.contact.sort((a: Contact, b: Contact) => a.first_name.localeCompare(b.first_name));
+
+  const allContacts = [...data.contact].sort((a: Contact, b: Contact) => a.first_name.localeCompare(b.first_name));
 
 
   const allContactsExceptFavorites = allContacts.filter(
@@ -77,7 +79,7 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
   contact.last_name.toLowerCase().includes(searchQuery.toLowerCase())
 )
 
-const uniqueFirstLetters = Array.from(new Set(allContactsToShowMobile.map((contact: Contact) => contact.first_name[0].toUpperCase())));
+  const uniqueFirstLetters = [...new Set(allContactsToShowMobile.map((contact: Contact) => contact.first_name[0].toUpperCase()))];
   const totalPagesForAllContacts = Math.ceil( allContactsExceptFavorites.length / pageSize );
 
   const addToFavorites = (contact: Contact) => {
