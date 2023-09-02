@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import ContactListPage from './components/ContactList';
+import ContactListPage from './pages/ContactList';
 import FormContactPage from './components/FormContact';
 import EditContactPage from 'components/EditContact';
 import Footer from 'components/global/Footer';

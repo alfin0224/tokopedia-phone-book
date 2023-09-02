@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const ContactContainer = styled.div`
+export const DesktopContactContainer = styled.div`
 min-height: 800px;
 padding-top: 50px;
 display: flex;
@@ -12,9 +12,34 @@ align-items: center;
   padding: 30px 0;
   min-height: 500px;
 }
+@media screen and (max-width: 768px){
+  display: none;
+}
 
 h1 {
   margin-bottom: 20px;
+}
+`;
+
+export const MobileContactContainer = styled.div`
+display: none;
+
+@media screen and (max-width: 768px){
+  min-height: 800px;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 1024px){
+    padding: 30px 0;
+    min-height: 500px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
 }
 `;
 
@@ -38,22 +63,19 @@ export const ContactListWrapper = styled.div`
 `;
 
 export const ContactListContainer = styled.div`
-  padding: 20px;
   background-color: #f8f8f8;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
   width: 250px;
   max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
   transition: all 0.2s ease-in-out;
+  margin-bottom: 10px;
+  padding: 7px;
 
   .contact-card {
     background-color: white;
     border-radius: 8px;
-    padding: 15px;
     margin: 10px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     h2 {
       margin: 0;
@@ -67,41 +89,81 @@ export const ContactListContainer = styled.div`
       color: #777;
     }
   }
+  @media screen and (max-width: 768px){
+    width: 330px;
 
-  @media (max-width: 768px) {
-    .contact-card {
-      padding: 10px;
-    }
-  }
+}
 `;
 
 export const ContactCard = styled.div`
-  border: 1px solid #ccc;
   width: 220px;
+  color: #5c5c5c;
   text-align: center;
   padding: 10px;
-  margin: 10px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  font-size: 1rem;
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+
+  @media screen and (max-width: 768px){
+    width: 290px;
+    display: grid;
+    grid-template-columns: 3fr 0.5fr;
+
+}
+`;
+
+export const AddContactMobile = styled.div`
+  width: 220px;
+  color: #5c5c5c;
+  text-align: center;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 9px;
+
+  @media screen and (max-width: 768px){
+    width: 290px;
+    display: grid;
+    grid-template-columns: 3fr 0.5fr;
+
+}
+`;
+
+export const PhoneNumberCard = styled.div`
+  width: 220px;
+  color: #5c5c5c;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 5x;
+  margin-left: 5px;
+  font-size: 1rem;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 9px;
+  @media screen and (max-width: 768px){
+    width: 290px;
+}
 `;
 
 export const ButtonCardContainer = styled.div`
-  border: 1px solid #ccc;
   width: 220px;
-  padding: 10px;
-  margin: 10px;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+  margin-left: 5px;
+  padding: 10px;
   text-align: center;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   button {
     color: #fff;
-    margin-right: 5px;
     padding: 5px 10px;
     border: none;
     border-radius: 3px;
@@ -127,6 +189,10 @@ export const ButtonCardContainer = styled.div`
       background-color: #089ba6;
     }
   }
+  @media screen and (max-width: 768px){
+    width: 290px;
+
+}
 `;
 
 export const SearchInputContainer = styled.div`
@@ -193,6 +259,10 @@ export const PaginationContainer = styled.div`
     color: white;
     border-color: #329c37;
   }
+
+  @media screen and (max-width:768px){
+    display: none;
+  }
 `;
 
 export const ActionButton = styled.div`
@@ -225,6 +295,7 @@ export const ActionButton = styled.div`
   }
 
   @media (max-width: 768px) {
+    display: none;
     button {
       font-size: 1rem;
     }
