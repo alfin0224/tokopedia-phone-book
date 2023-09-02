@@ -132,7 +132,7 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
         {allContactsToShowMobile.map((contact: Contact) => (
           contact.first_name[0].toUpperCase() === letter && (
             <ContactListContainer className='contact-card' key={contact.id}>
-              <ContactCard style={{ fontSize: '1.2rem', textAlign:'left'}}>
+              <ContactCard style={{ fontSize: '1.1rem', textAlign:'left'}}>
                 <div style={{ paddingLeft: '20px'}}>
                   <b>{contact.first_name} {contact.last_name}</b>
                 </div>
