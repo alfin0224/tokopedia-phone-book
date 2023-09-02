@@ -6,16 +6,7 @@ import {
     ContactCard,
     PhoneNumberCard
   } from './ContactElements';
-
-  interface Contact {
-    id: number;
-    first_name: string;
-    last_name: string;
-    phones: {
-      number: string;
-    }[];
-    contactId: number;
-  }
+import { Contact } from 'pages/ContactList';
 
   interface MobileContactCardProps {
     contact: Contact; 

@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
-import { useMutation } from '@apollo/client';
-import { useNavigate, Link } from 'react-router-dom';
+import { useMutation, useQuery } from '@apollo/client';
+import { Link } from 'react-router-dom';
 import { ADD_CONTACT } from '../graphql/mutations';
 import { FormContainer, Form } from './ContactElements'
 import { FaPlusCircle, FaTrash } from 'react-icons/fa';
+import { GET_CONTACT_LIST } from '../graphql/queries';
+import { Contact } from '../pages/ContactList';
+import Swal from 'sweetalert2';
+
 
 
 const FormContactPage: React.FC = () => {
-  const navigate = useNavigate();
+  const { loading, error, data } = useQuery(GET_CONTACT_LIST); 
 
   const [addContact] = useMutation(ADD_CONTACT);
 
@@ -33,7 +37,42 @@ const FormContactPage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!/^[a-zA-Z\s]*$/.test(firstName) || !/^[a-zA-Z\s]*$/.test(lastName)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Name',
+        text: 'First name and last name must only contain letters and spaces.',
+      });
+      console.error('Error: First name and last name must only contain letters and spaces.');
+      return;
+    }
+  
+
+    if (loading) return;
+    if (error) {
+      console.error('Error fetching existing contacts:', error);
+      return;
+    }
+
+    const existingContacts = data.contact;
+
+    const isDuplicate = existingContacts.some(
+      (contact: Contact) =>
+        contact.first_name === firstName && contact.last_name === lastName
+    );
+
+    if (isDuplicate) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Duplicate Contact',
+        text: 'Contact with the same first name and last name already exists.',
+      });
+      console.error('Error: Contact with the same first name and last name already exists.');
+      return;
+    }
+
     try {
+
       const { data } = await addContact({
         variables: {
           first_name: firstName,
@@ -43,11 +82,21 @@ const FormContactPage: React.FC = () => {
       });
 
       if (data.insert_contact.returning[0].id) {
-        
-        navigate('/');
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Contact data saved successfully!',
+        }).then(() => {
+          window.location.href = '/';
+        });
       }
     } catch (error) {
       console.error('Error adding contact:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error Adding Contact',
+        text: 'An error occurred while adding the contact. Please try again.',
+      });
     }
   };
 

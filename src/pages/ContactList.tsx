@@ -19,9 +19,10 @@ import {
  import Search from '../components/Search';
 import MobileContactCard from '../components/MobileContactCard'; 
 import DesktopContactCard from '../components/DesktopContactCard';
+import Swal from 'sweetalert2';
 
 
-interface Contact {
+export interface Contact {
     id: number;
     first_name: string;
     last_name: string;
@@ -54,8 +55,6 @@ function ContactList() {
 
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
-
-  // const allContacts = data.contact.sort((a: Contact, b: Contact) => a.first_name.localeCompare(b.first_name));
 
   const allContacts = [...data.contact].sort((a: Contact, b: Contact) => a.first_name.localeCompare(b.first_name));
 
@@ -94,14 +93,38 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
 
   const handleDeleteContact = async (contactId: number) => {
     try {
-      await deleteContact({
-        variables: { id: contactId },
-        refetchQueries: [{ query: GET_CONTACT_LIST }],
+      const result = await Swal.fire({
+        icon: 'warning',
+        title: 'Are you sure?',
+        text: 'This action cannot be undone.',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel',
+        reverseButtons: true,
       });
+  
+      if (result.isConfirmed) {
+        await deleteContact({
+          variables: { id: contactId },
+          refetchQueries: [{ query: GET_CONTACT_LIST }],
+        });
+  
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Contact data deleted successfully!',
+        });
+      }
     } catch (error) {
       console.error('Error deleting contact:', error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error Deleting Contact',
+        text: 'An error occurred while deleting the contact. Please try again.',
+      });
     }
   };
+  
 
   return (
 <div>
@@ -109,8 +132,8 @@ const allContactsToShowMobile = allContactsExceptFavorites.filter((contact: Cont
     <MobileContactContainer>
       <AddContactMobile>
         <div></div>
-        <div style={{alignItems: 'right', justifyContent: 'right', textAlign: 'right'}}>
-          <Link to="/add"><button style={{backgroundColor: 'transparent', border: '0px', fontSize: '2rem', color: '#329c37' }}><FaPlusCircle/></button></Link>
+        <div style={{alignItems: 'right', justifyContent: 'right', textAlign: 'right', marginRight: '-2rem', marginBottom: '-1.5rem'}}>
+          <Link to="/add"><button style={{backgroundColor: 'transparent', border: '0px', fontSize: '3rem', color: '#329c37' }}><FaPlusCircle/></button></Link>
         </div>
       </AddContactMobile>
       <Search searchQuery={searchQuery} handleSearch={handleSearch} />

@@ -274,6 +274,7 @@ export const ActionButton = styled.div`
   border: none;
   border-radius: 4px;
   padding: 8px 16px;
+  padding-bottom: 50px;
   margin: 8px;
   cursor: pointer;
   transition: background-color 0.2s, transform 0.2s;

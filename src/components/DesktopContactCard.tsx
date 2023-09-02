@@ -6,16 +6,7 @@ import {
   ButtonCardContainer,
   ContactCard,
 } from './ContactElements';
-
-interface Contact {
-  id: number;
-  first_name: string;
-  last_name: string;
-  phones: {
-    number: string;
-  }[];
-  contactId: number;
-}
+import { Contact } from 'pages/ContactList';
 
   interface DesktopContactCardProps {
     contact: Contact; // Make sure to import the Contact interface
