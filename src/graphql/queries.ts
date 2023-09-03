@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const GET_CONTACT_LIST = gql`
   query GetContactList {
@@ -11,7 +11,7 @@ export const GET_CONTACT_LIST = gql`
       }
     }
   }
-`
+`;
 
 export const GET_CONTACT_DETAIL = gql`
   query GetContactDetail($id: Int!) {
@@ -37,7 +37,14 @@ export const TOGGLE_FAVORITE = gql`
 
 export const SEARCH_CONTACTS = gql`
   query SearchContacts($search: String!) {
-    contact(where: { _or: [{ first_name: { _ilike: $search } }, { last_name: { _ilike: $search } }] }) {
+    contact(
+      where: {
+        _or: [
+          { first_name: { _ilike: $search } }
+          { last_name: { _ilike: $search } }
+        ]
+      }
+    ) {
       id
       first_name
       last_name

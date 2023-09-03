@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
-import { useMutation, useQuery } from '@apollo/client';
-import { Link } from 'react-router-dom';
-import { ADD_CONTACT } from '../graphql/mutations';
-import { FormContainer, Form } from './ContactElements'
-import { FaPlusCircle, FaTrash } from 'react-icons/fa';
-import { GET_CONTACT_LIST } from '../graphql/queries';
-import { Contact } from '../pages/ContactList';
-import Swal from 'sweetalert2';
-
-
+import React, { useState } from "react";
+import { useMutation, useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
+import { ADD_CONTACT } from "../graphql/mutations";
+import { FormContainer, Form } from "./ContactElements";
+import { FaPlusCircle, FaTrash } from "react-icons/fa";
+import { GET_CONTACT_LIST } from "../graphql/queries";
+import { Contact } from "../pages/ContactList";
+import Swal from "sweetalert2";
 
 const FormContactPage: React.FC = () => {
-  const { loading, error, data } = useQuery(GET_CONTACT_LIST); 
+  const { loading, error, data } = useQuery(GET_CONTACT_LIST);
 
   const [addContact] = useMutation(ADD_CONTACT);
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phoneNumbers, setPhoneNumbers] = useState<string[]>(['']);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phoneNumbers, setPhoneNumbers] = useState<string[]>([""]);
 
   const handleAddPhoneNumber = () => {
-    setPhoneNumbers([...phoneNumbers, '']);
+    setPhoneNumbers([...phoneNumbers, ""]);
   };
 
   const handleDeletePhoneNumber = (index: number) => {
@@ -39,18 +37,19 @@ const FormContactPage: React.FC = () => {
 
     if (!/^[a-zA-Z\s]*$/.test(firstName) || !/^[a-zA-Z\s]*$/.test(lastName)) {
       Swal.fire({
-        icon: 'error',
-        title: 'Invalid Name',
-        text: 'First name and last name must only contain letters and spaces.',
+        icon: "error",
+        title: "Invalid Name",
+        text: "First name and last name must only contain letters and spaces.",
       });
-      console.error('Error: First name and last name must only contain letters and spaces.');
+      console.error(
+        "Error: First name and last name must only contain letters and spaces."
+      );
       return;
     }
-  
 
     if (loading) return;
     if (error) {
-      console.error('Error fetching existing contacts:', error);
+      console.error("Error fetching existing contacts:", error);
       return;
     }
 
@@ -63,39 +62,40 @@ const FormContactPage: React.FC = () => {
 
     if (isDuplicate) {
       Swal.fire({
-        icon: 'error',
-        title: 'Duplicate Contact',
-        text: 'Contact with the same first name and last name already exists.',
+        icon: "error",
+        title: "Duplicate Contact",
+        text: "Contact with the same first name and last name already exists.",
       });
-      console.error('Error: Contact with the same first name and last name already exists.');
+      console.error(
+        "Error: Contact with the same first name and last name already exists."
+      );
       return;
     }
 
     try {
-
       const { data } = await addContact({
         variables: {
           first_name: firstName,
           last_name: lastName,
-          phones: phoneNumbers.map(number => ({ number })),
+          phones: phoneNumbers.map((number) => ({ number })),
         },
       });
 
       if (data.insert_contact.returning[0].id) {
         Swal.fire({
-          icon: 'success',
-          title: 'Success',
-          text: 'Contact data saved successfully!',
+          icon: "success",
+          title: "Success",
+          text: "Contact data saved successfully!",
         }).then(() => {
-          window.location.href = '/';
+          window.location.href = "/";
         });
       }
     } catch (error) {
-      console.error('Error adding contact:', error);
+      console.error("Error adding contact:", error);
       Swal.fire({
-        icon: 'error',
-        title: 'Error Adding Contact',
-        text: 'An error occurred while adding the contact. Please try again.',
+        icon: "error",
+        title: "Error Adding Contact",
+        text: "An error occurred while adding the contact. Please try again.",
       });
     }
   };
@@ -110,7 +110,7 @@ const FormContactPage: React.FC = () => {
             placeholder="Write the first name in here..."
             id="first-name"
             value={firstName}
-            onChange={e => setFirstName(e.target.value)}
+            onChange={(e) => setFirstName(e.target.value)}
             required
           />
         </div>
@@ -120,42 +120,48 @@ const FormContactPage: React.FC = () => {
             placeholder="Write the last name in here..."
             id="last-name"
             value={lastName}
-            onChange={e => setLastName(e.target.value)}
+            onChange={(e) => setLastName(e.target.value)}
             required
           />
         </div>
         <div>
           {phoneNumbers.map((number, index) => (
             <div>
-            <input
-              key={index}
-              type="tel" 
-              id="phone" 
-              name="phone" 
-              placeholder="+62 / 62 / 08 / 02" 
-              pattern="^(^\+62|62|02|^08)(\d{3,4}-?){2}\d{3,4}$"
-              value={number}
-              onChange={e => handlePhoneNumberChange(index, e.target.value)}
-              style={{width: '210px'}}
-              required
-            />
-            {index > 0 && 
-            <button
-              style={{backgroundColor: '#e02424'}}
-              type="button"
-              onClick={() => handleDeletePhoneNumber(index)}
-            >
-              <FaTrash/>
-            </button>
-}
+              <input
+                key={index}
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+62 / 62 / 08 / 02"
+                pattern="^(^\+62|62|02|^08)(\d{3,4}-?){2}\d{3,4}$"
+                value={number}
+                onChange={(e) => handlePhoneNumberChange(index, e.target.value)}
+                style={{ width: "210px" }}
+                required
+              />
+              {index > 0 && (
+                <button
+                  style={{ backgroundColor: "#e02424" }}
+                  type="button"
+                  onClick={() => handleDeletePhoneNumber(index)}
+                >
+                  <FaTrash />
+                </button>
+              )}
             </div>
-          ))} 
+          ))}
         </div>
-        <button type="button" style={{backgroundColor: '#0abac7'}} onClick={handleAddPhoneNumber}>
-            <FaPlusCircle/> New Input Number
-          </button>
+        <button
+          type="button"
+          style={{ backgroundColor: "#0abac7" }}
+          onClick={handleAddPhoneNumber}
+        >
+          <FaPlusCircle /> New Input Number
+        </button>
         <button type="submit">Save Contact</button>
-        <Link to="/"><button style={{backgroundColor: 'gray'}}>Back</button></Link>
+        <Link to="/">
+          <button style={{ backgroundColor: "gray" }}>Back</button>
+        </Link>
       </Form>
     </FormContainer>
   );

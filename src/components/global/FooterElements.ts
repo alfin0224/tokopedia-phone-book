@@ -1,5 +1,4 @@
-import styled from '@emotion/styled';
-
+import styled from "@emotion/styled";
 
 export const Container = styled.div`
   max-width: 1240px;
@@ -39,22 +38,22 @@ export const SocialIcons = styled.div`
 `;
 
 export const Links = styled.a`
-    color: #696b6a;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 0 1rem;
-    height: 100%;
-    cursor: pointer;
+  color: #696b6a;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 0 1rem;
+  height: 100%;
+  cursor: pointer;
 
-    &:hover {
-        transition: all 0.2s ease-in-out;
-        background: #fff;
-        color: #329c37;
-    }
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #329c37;
+  }
 
-    &.active {
-        border-bottom: 3px solid #D6B495;
-    }
-`
+  &.active {
+    border-bottom: 3px solid #d6b495;
+  }
+`;

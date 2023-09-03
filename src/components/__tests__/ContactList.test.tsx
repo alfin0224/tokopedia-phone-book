@@ -1,17 +1,15 @@
-import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { MockedProvider } from '@apollo/client/testing';
-import ContactList from '../../pages/ContactList';
-import { GET_CONTACT_LIST } from '../../graphql/queries';
+import React from "react";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { MockedProvider } from "@apollo/client/testing";
+import ContactList from "../../pages/ContactList";
+import { GET_CONTACT_LIST } from "../../graphql/queries";
 
 const mockContacts = {
-    id: 1,
-    contactId: 1,
-    first_name: 'John',
-    last_name: 'Doe',
-    phones: [
-      { number: '1234567890' },
-    ],
+  id: 1,
+  contactId: 1,
+  first_name: "John",
+  last_name: "Doe",
+  phones: [{ number: "1234567890" }],
 };
 const mocks = [
   {
@@ -26,19 +24,19 @@ const mocks = [
   },
 ];
 
-describe('ContactList', () => {
-  it('renders loading state', () => {
+describe("ContactList", () => {
+  it("renders loading state", () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <ContactList />
       </MockedProvider>
     );
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByText("Loading...")).toBeInTheDocument();
   });
 
-  it('renders error state', async () => {
-    const errorMessage = 'An error occurred';
+  it("renders error state", async () => {
+    const errorMessage = "An error occurred";
     const errorMocks = [
       {
         request: {
@@ -58,12 +56,11 @@ describe('ContactList', () => {
     expect(errorElement).toBeInTheDocument();
   });
 
-  it('renders contact list', async () => {
+  it("renders contact list", async () => {
     render(
       <MockedProvider mocks={mocks} addTypename={false}>
         <ContactList />
       </MockedProvider>
     );
   });
-
 });

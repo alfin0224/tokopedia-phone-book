@@ -1,30 +1,6 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const DesktopContactContainer = styled.div`
-min-height: 800px;
-padding-top: 50px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-@media screen and (max-width: 1024px){
-  padding: 30px 0;
-  min-height: 500px;
-}
-@media screen and (max-width: 768px){
-  display: none;
-}
-
-h1 {
-  margin-bottom: 20px;
-}
-`;
-
-export const MobileContactContainer = styled.div`
-display: none;
-
-@media screen and (max-width: 768px){
   min-height: 800px;
   padding-top: 50px;
   display: flex;
@@ -32,34 +8,58 @@ display: none;
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 1024px){
+  @media screen and (max-width: 1024px) {
     padding: 30px 0;
     min-height: 500px;
+  }
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 
   h1 {
     margin-bottom: 20px;
   }
-}
+`;
+
+export const MobileContactContainer = styled.div`
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    min-height: 800px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @media screen and (max-width: 1024px) {
+      padding: 30px 0;
+      min-height: 500px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+  }
 `;
 
 export const ContactListWrapper = styled.div`
-    max-width: full-width;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    align-items: center;
-    grid-gap: 19px;
-    padding: 0 0px;
+  max-width: full-width;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  grid-gap: 19px;
+  padding: 0 0px;
 
-    @media screen and (max-width:1024px){
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 
-    @media screen and (max-width: 768px){
-        grid-template-columns: 1fr;
-        padding: 0 20px;
-    }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
 `;
 
 export const ContactListContainer = styled.div`
@@ -89,10 +89,9 @@ export const ContactListContainer = styled.div`
       color: #777;
     }
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 330px;
-
-}
+  }
 `;
 
 export const ContactCard = styled.div`
@@ -109,12 +108,11 @@ export const ContactCard = styled.div`
   background-color: #fff;
   border-radius: 6px;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 290px;
     display: grid;
     grid-template-columns: 3fr 0.5fr;
-
-}
+  }
 `;
 
 export const AddContactMobile = styled.div`
@@ -127,12 +125,11 @@ export const AddContactMobile = styled.div`
   background-color: #fff;
   border-radius: 9px;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 290px;
     display: grid;
     grid-template-columns: 3fr 0.5fr;
-
-}
+  }
 `;
 
 export const PhoneNumberCard = styled.div`
@@ -148,9 +145,9 @@ export const PhoneNumberCard = styled.div`
   align-items: center;
   background-color: #fff;
   border-radius: 9px;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 290px;
-}
+  }
 `;
 
 export const ButtonCardContainer = styled.div`
@@ -192,10 +189,9 @@ export const ButtonCardContainer = styled.div`
       background-color: #089ba6;
     }
   }
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 290px;
-
-}
+  }
 `;
 
 export const SearchInputContainer = styled.div`
@@ -235,7 +231,7 @@ export const PaginationContainer = styled.div`
   display: flex;
   justify-content: center;
   margin-top: 20px;
-  margin-bottom:30px;
+  margin-bottom: 30px;
 
   button {
     padding: 5px 10px;
@@ -264,7 +260,7 @@ export const PaginationContainer = styled.div`
     border-color: #329c37;
   }
 
-  @media screen and (max-width:768px){
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
@@ -285,7 +281,7 @@ export const ActionButton = styled.div`
   &:hover {
     transform: translateY(1px);
   }
-  
+
   button {
     font-size: 1.2rem;
     padding: 8px 12px;
@@ -317,55 +313,54 @@ export const FormContainer = styled.div`
   margin: 0 auto;
   padding: 20px;
 
-  @media screen and (max-width:1024px){
+  @media screen and (max-width: 1024px) {
     min-height: 1100px;
-}
+  }
 
-  @media screen and (max-width:768px){
+  @media screen and (max-width: 768px) {
     min-height: 450px;
   }
 `;
 
 export const Form = styled.form`
-background-color: #fff;
-border-radius: 8px;
-box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
 
-input {
-  width: 300px;
-  margin: 10px;
-}
-
-button {
-  height: 2.4rem;
-  background-color: #2abd38;
-  color: #fff;
-  margin: 5px;
-  border: none;
-  cursor: pointer;
-  &:hover {
-    background-color: #329c37;
-  }
-}
-
-input,
-button {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-@media screen and (max-width:1024px){
-  zoom: 200%;
-}
-
-@media screen and (max-width:768px){
   input {
-    width: 260px;
+    width: 300px;
+    margin: 10px;
   }
-  zoom: 100%;
-}
 
+  button {
+    height: 2.4rem;
+    background-color: #2abd38;
+    color: #fff;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: #329c37;
+    }
+  }
+
+  input,
+  button {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    zoom: 200%;
+  }
+
+  @media screen and (max-width: 768px) {
+    input {
+      width: 260px;
+    }
+    zoom: 100%;
+  }
 `;
