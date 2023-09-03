@@ -25,6 +25,7 @@ import { Contact } from 'pages/ContactList';
                 </div>
                 <div>
                   <button
+                    data-testid="expand-button"
                     style={{backgroundColor: 'transparent', border: 'none', }}
                     onClick={() => toggleShowMore(showMoreId)}>
                     {showMoreId === contact.id ? <FaExpand style={{color: "#329c37"}}/> : <FaBars/>}
