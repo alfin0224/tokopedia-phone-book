@@ -48,6 +48,25 @@ export const SocialIcons = styled.div`
   margin: 2px 0;
 `;
 
+export const GooglePlay = styled.img`
+  width: 110px;
+  height: 34.375px;
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 25px;
+  }
+`;
+export const AppStore = styled.img`
+  width: 110px;
+  height: 36.67px;
+
+  @media (max-width: 768px) {
+    width: 80px;
+    height: 26.67px;
+  }
+`;
+
 export const Links = styled.a`
   color: #696b6a;
   display: flex;

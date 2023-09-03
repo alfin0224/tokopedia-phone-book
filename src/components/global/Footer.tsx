@@ -7,6 +7,8 @@ import {
   ListItem,
   SocialIcons,
   Links,
+  GooglePlay,
+  AppStore
 } from "./FooterElements";
 import tokpedLogo from "../../images/tokped-logo.svg";
 import appStore from "../../images/app-store.png";
@@ -55,20 +57,15 @@ const Footer: React.FC = () => {
             }}
             alt="tokopedia logo header"
           />
-          <p>Unduh Aplikasi Tokopedia.</p>
+          <p style={{fontSize: "0.8rem"}}>Unduh Aplikasi Tokopedia.</p>
           <SocialIcons>
             <a
               href="https://play.google.com/store/apps/details?id=com.tokopedia.tkpd&hl=en"
               target="_blank"
               rel="noreferrer"
             >
-              <img
+              <GooglePlay
                 src={googlePlay}
-                width="110"
-                height="27"
-                style={{
-                  maxWidth: "100%"
-                }}
                 alt="tokopedia google play"
               />
             </a>
@@ -77,13 +74,8 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <img
+              <AppStore
                 src={appStore}
-                width="110px"
-                height="28"
-                style={{
-                  maxWidth: "100%"
-                }}
                 alt="tokopedia appstore"
               />
             </a>
@@ -101,7 +93,7 @@ const Footer: React.FC = () => {
           </SocialIcons>
         </Section>
         <Section></Section>
-        <Section>2009 - 2023 PT Tokopedia</Section>
+        <Section style={{fontSize: '0.8rem'}}>2009 - 2023 PT Tokopedia</Section>
       </Container>
     </div>
   );
