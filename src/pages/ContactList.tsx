@@ -202,6 +202,7 @@ function ContactList() {
           >
             <Link to="/add" aria-label="Navigate to Add New Contact page">
               <button
+                aria-label="Add Contact"
                 style={{
                   backgroundColor: "transparent",
                   border: "0px",
