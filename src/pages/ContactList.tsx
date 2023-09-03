@@ -331,9 +331,8 @@ function ContactList() {
           ))}
         </ContactListWrapper>
         <ActionButton>
-          <Link to="/add">
+          <Link to="/add" aria-label="Navigate to Add New Contact page">
             <button aria-label="Add Contact">
-            <span aria-hidden="true">Add</span>
               <FaPlusCircle /> Add Contact
             </button>
           </Link>
@@ -370,6 +369,7 @@ function ContactList() {
               <ButtonCardContainer>
                 {favoriteContacts.includes(contact) ? (
                   <button
+                    aria-label="Favorite"
                     className="btn-favorite"
                     onClick={() => removeFromFavorites(contact)}
                   >
@@ -377,18 +377,20 @@ function ContactList() {
                   </button>
                 ) : (
                   <button
+                    aria-label="Favorite"
                     className="btn-favorite"
                     onClick={() => addToFavorites(contact)}
                   >
                     Add To &nbsp; <FaStar />
                   </button>
                 )}
-                <Link to={`/edit/${contact.id}`}>
-                  <button className="btn-edit">
+                <Link to={`/edit/${contact.id}`} aria-label="Navigate to Edit Contact page">
+                  <button className="btn-edit" aria-label="Edit Contact">
                     <FaEdit />
                   </button>
                 </Link>
                 <button
+                  aria-label="Delete Contact"
                   className={"btn-delete"}
                   onClick={() => handleDeleteContact(contact.id)}
                 >

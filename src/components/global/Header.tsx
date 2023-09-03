@@ -18,8 +18,8 @@ const Header: React.FC = () => {
             <NavLogo to="/">
               <img
                 src={tokpedLogo}
-                width="140px"
-                height="30"
+                width="110"
+                height="25"
                 style={{
                   maxWidth: "100%"
                 }}
