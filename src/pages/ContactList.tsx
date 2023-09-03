@@ -200,7 +200,7 @@ function ContactList() {
               marginBottom: "-1.5rem",
             }}
           >
-            <Link to="/add">
+            <Link to="/add" aria-label="Navigate to Add New Contact page">
               <button
                 style={{
                   backgroundColor: "transparent",
@@ -254,6 +254,7 @@ function ContactList() {
                         </div>
                         <div>
                           <button
+                            aria-label="Show More"
                             style={{
                               backgroundColor: "transparent",
                               border: "none",
@@ -331,7 +332,8 @@ function ContactList() {
         </ContactListWrapper>
         <ActionButton>
           <Link to="/add">
-            <button>
+            <button aria-label="Add Contact">
+            <span aria-hidden="true">Add</span>
               <FaPlusCircle /> Add Contact
             </button>
           </Link>

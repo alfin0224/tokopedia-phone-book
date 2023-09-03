@@ -3,6 +3,7 @@ import { FaInstagram, FaYoutube, FaLinkedin, FaFacebook } from "react-icons/fa";
 import {
   Container,
   Section,
+  WrapperItem,
   ListItem,
   SocialIcons,
   Links,
@@ -16,7 +17,7 @@ const Footer: React.FC = () => {
     <div>
       <hr />
       <Container>
-        <Section>
+        <WrapperItem>
           <ListItem>
             <Links href="/">Beranda</Links>
           </ListItem>
@@ -29,8 +30,8 @@ const Footer: React.FC = () => {
           <ListItem>
             <Links href="/">Inovasi</Links>
           </ListItem>
-        </Section>
-        <Section>
+        </WrapperItem>
+        <WrapperItem>
           <ListItem>
             <Links href="/">Newsroom</Links>
           </ListItem>
@@ -43,14 +44,14 @@ const Footer: React.FC = () => {
           <ListItem>
             <Links href="/">Kontak</Links>
           </ListItem>
-        </Section>
+        </WrapperItem>
         <div>
           <img
             src={tokpedLogo}
-            width="140px"
+            width="120"
+            height="27"
             style={{
-              maxWidth: "100%",
-              height: "auto",
+              maxWidth: "100%"
             }}
             alt="tokopedia logo header"
           />
@@ -63,12 +64,12 @@ const Footer: React.FC = () => {
             >
               <img
                 src={googlePlay}
-                width="110px"
+                width="110"
+                height="27"
                 style={{
-                  maxWidth: "100%",
-                  height: "auto",
+                  maxWidth: "100%"
                 }}
-                alt="tokopedia logo header"
+                alt="tokopedia google play"
               />
             </a>
             <a
@@ -79,11 +80,11 @@ const Footer: React.FC = () => {
               <img
                 src={appStore}
                 width="110px"
+                height="28"
                 style={{
-                  maxWidth: "100%",
-                  height: "auto",
+                  maxWidth: "100%"
                 }}
-                alt="tokopedia logo header"
+                alt="tokopedia appstore"
               />
             </a>
           </SocialIcons>

@@ -25,6 +25,17 @@ export const Section = styled.div`
   }
 `;
 
+export const WrapperItem = styled.ul`
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 6px;
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+`;
+
 export const ListItem = styled.li`
   padding: 8px 0;
   font-size: 1rem;
