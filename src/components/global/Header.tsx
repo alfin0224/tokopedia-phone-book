@@ -19,9 +19,9 @@ const Header: React.FC = () => {
               <img
                 src={tokpedLogo}
                 width="140px"
+                height="30"
                 style={{
-                  maxWidth: "100%",
-                  height: "auto",
+                  maxWidth: "100%"
                 }}
                 alt="tokopedia logo header"
               />
